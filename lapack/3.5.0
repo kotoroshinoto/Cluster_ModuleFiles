@@ -1,0 +1,24 @@
+#%Module1.0
+
+proc ModulesHelp { } {
+        puts stderr "\t\n"
+}
+
+source "$::env(GoochBiotoolRoot)/modulefiles/util.tcl"
+
+set name	lapack
+
+set versiondir	3.5.0
+
+set hasbin	0
+set hasinclude	1
+set haslib	1
+set haslib64	0
+set hasman	0
+set hasinfo	0
+
+setStandardPaths $name $versiondir $::env(GoochBiotoolRoot) $hasbin $hasinclude $haslib $hasman $hasinfo $haslib64
+
+prepend-path PKG_CONFIG_PATH $::env(GoochBiotoolRoot)/$name/$versiondir/lib/pkgconfig
+
+conflict $name

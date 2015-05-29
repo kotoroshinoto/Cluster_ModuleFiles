@@ -1,0 +1,7 @@
+#%Module1.0
+
+proc ModulesHelp { } {
+        puts stderr "\t\n"
+}
+
+prepend-path PATH $::env(GoochBiotoolRoot)/GoochTools/TCGA_MAF_Analysis/cgi-bin/

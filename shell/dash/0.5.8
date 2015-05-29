@@ -1,0 +1,22 @@
+#%Module1.0
+
+proc ModulesHelp { } {
+        puts stderr "\t\n"
+}
+
+source "$::env(GoochBiotoolRoot)/modulefiles/util.tcl"
+
+set name	dash
+
+set versiondir	0.5.8
+
+set hasbin	1
+set hasinclude	0
+set haslib	0
+set haslib64	0
+set hasman	1
+set hasinfo	1
+
+setStandardPaths $name $versiondir $::env(GoochBiotoolRoot)/shell $hasbin $hasinclude $haslib $hasman $hasinfo $haslib64
+
+conflict $name
