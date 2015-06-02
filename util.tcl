@@ -143,7 +143,7 @@ proc setStandardPaths {name version prefix hasbin hasinclude haslib {hasman 0} {
 }
 
 
-proc checkBin {$name $version {prefix ""}} {
+proc checkBin {name version {prefix ""}} {
 	puts stderr "TEST_1"
 	if {[string compare $prefix "" ] == 0} {
 		set path "$name/$version"
@@ -163,7 +163,7 @@ proc checkBin {$name $version {prefix ""}} {
 	
 }
 
-proc checkInclude {$name $version {prefix ""}} {
+proc checkInclude {name version {prefix ""}} {
 	if {[string compare $prefix "" ] == 0} {
 		set path "$name/$version"
 	} else {
@@ -181,7 +181,7 @@ proc checkInclude {$name $version {prefix ""}} {
 	
 }
 
-proc checkLib {$name $version {prefix ""}} {
+proc checkLib {name version {prefix ""}} {
 	if {[string compare $prefix "" ] == 0} {
 		set path "$name/$version"
 	} else {
@@ -200,7 +200,7 @@ proc checkLib {$name $version {prefix ""}} {
 	
 }
 
-proc checkLib64 {$name $version {prefix ""}} {
+proc checkLib64 {name version {prefix ""}} {
 	if {[string compare $prefix "" ] == 0} {
 		set path "$name/$version"
 	} else {
@@ -218,7 +218,7 @@ proc checkLib64 {$name $version {prefix ""}} {
 	return
 }
 
-proc checkMAN {$name $version {prefix ""}} {
+proc checkMAN {name version {prefix ""}} {
 	if {[string compare $prefix "" ] == 0} {
 		set path "$name/$version"
 	} else {
