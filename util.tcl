@@ -155,12 +155,12 @@ proc checkBin {name version {prefix ""}} {
 		puts stderr "BIN PATH FOUND"
 		prepend-path PATH "$path/bin"
 		puts stderr "BIN PATH ADDED TO ENV_VAR"
-		if([info exists $::env(MODULES_DEBUG)]) { puts stderr "$path/bin added to environmental variable: PATH" }
+		if {[info exists ::env(MODULES_DEBUG)] == 1} { puts stderr "$path/bin added to environmental variable: PATH" }
 		puts stderr "BIN PATH DONE"
 	
 	} else {
 		puts stderr "BIN PATH NOT FOUND"
-		if([info exists $::env(MODULES_DEBUG)]) { puts stderr "failed to find $path/bin" }
+		if {[info exists $::env(MODULES_DEBUG)] == 1 } { puts stderr "failed to find $path/bin" }
 	}
 	puts stderr "TEST_3"
 	return
@@ -176,10 +176,10 @@ proc checkInclude {name version {prefix ""}} {
 	if {[file exists "$path"] && [file isdirectory "$path"]} {
 		prepend-path CPLUS_INCLUDE_PATH "$path/include"
 		prepend-path C_INCLUDE_PATH "$path/include"
-		if([info exists $::env(MODULES_DEBUG)]) { puts stderr "$path/include added to environmental variables: CPLUS_INCLUDE_PATH, C_INCLUDE_PATH" }
+		if {[info exists $::env(MODULES_DEBUG)] == 1 } { puts stderr "$path/include added to environmental variables: CPLUS_INCLUDE_PATH, C_INCLUDE_PATH" }
 	
 	} else {
-		if([info exists $::env(MODULES_DEBUG)]) { puts stderr "failed to find $path" }
+		if {[info exists $::env(MODULES_DEBUG)] == 1 } { puts stderr "failed to find $path" }
 	}
 	return
 	
@@ -195,10 +195,10 @@ proc checkLib {name version {prefix ""}} {
 		prepend-path LD_LIBRARY_PATH "$path/lib"
 		prepend-path LIBRARY_PATH "$path/lib"
 		prepend-path LD_RUN_PATH "$path/lib"
-		if([info exists $::env(MODULES_DEBUG)]) { puts stderr "$path/lib added to environmental variables: LD_LIBRARY_PATH, LIBRARY_PATH, LD_RUN_PATH" }
+		if {[info exists $::env(MODULES_DEBUG)] == 1 } { puts stderr "$path/lib added to environmental variables: LD_LIBRARY_PATH, LIBRARY_PATH, LD_RUN_PATH" }
 	
 	} else {
-		if([info exists $::env(MODULES_DEBUG)]) { puts stderr "failed to find $path" }
+		if {[info exists $::env(MODULES_DEBUG)] == 1 } { puts stderr "failed to find $path" }
 	}
 	return
 	
@@ -215,9 +215,9 @@ proc checkLib64 {name version {prefix ""}} {
 		prepend-path LD_LIBRARY_PATH "$path/lib64"
 		prepend-path LIBRARY_PATH "$path/lib64"
 		prepend-path LD_RUN_PATH "$path/lib64"
-		if([info exists $::env(MODULES_DEBUG)]) { puts stderr "$path/lib64 added to environmental variables: LD_LIBRARY_PATH, LIBRARY_PATH, LD_RUN_PATH" }
+		if {[info exists $::env(MODULES_DEBUG)] == 1 } { puts stderr "$path/lib64 added to environmental variables: LD_LIBRARY_PATH, LIBRARY_PATH, LD_RUN_PATH" }
 	} else {
-		if([info exists $::env(MODULES_DEBUG)]) { puts stderr "failed to find $path" }
+		if {[info exists $::env(MODULES_DEBUG)] == 1 } { puts stderr "failed to find $path" }
 	}
 	return
 }
@@ -230,15 +230,15 @@ proc checkMAN {name version {prefix ""}} {
 	}	
 	if {[file exists "$path/man"] && [file isdirectory "$path/man"]} {
 		prepend-path MANPATH "$path/man"
-		if([info exists $::env(MODULES_DEBUG)]) { puts stderr "$path/man added to environmental variable: MANPATH" }
+		if {[info exists $::env(MODULES_DEBUG)] == 1 } { puts stderr "$path/man added to environmental variable: MANPATH" }
 	} else {
-		if([info exists $::env(MODULES_DEBUG)]) { puts stderr "failed to find $path/man" }
+		if {[info exists $::env(MODULES_DEBUG)] == 1 } { puts stderr "failed to find $path/man" }
 	}
 	if {[file exists "$path/share/man"] && [file isdirectory "$path/share/man"]} {
 		prepend-path MANPATH "$path/share/man"
-		if([info exists $::env(MODULES_DEBUG)]) { puts stderr "$path/share/man added to environmental variable: MANPATH" }
+		if {[info exists $::env(MODULES_DEBUG)] == 1 } { puts stderr "$path/share/man added to environmental variable: MANPATH" }
 	} else {
-		if([info exists $::env(MODULES_DEBUG)]) { puts stderr "failed to find $path/share/man" }
+		if {[info exists $::env(MODULES_DEBUG)] == 1 } { puts stderr "failed to find $path/share/man" }
 	}
 	return
 }
@@ -252,9 +252,9 @@ proc checkINFO { name version {prefix ""} } {
 	}
 	if {[file exists "$path"] && [file isdirectory "$path"]} {
 		prepend-path INFOPATH "$path"
-		if([info exists $::env(MODULES_DEBUG)]) { puts stderr "$path added to environmental variable: INFOPATH" }
+		if {[info exists $::env(MODULES_DEBUG)] == 1 } { puts stderr "$path added to environmental variable: INFOPATH" }
 	} else {
-		if([info exists $::env(MODULES_DEBUG)]) { puts stderr "failed to find $path" }
+		if {[info exists $::env(MODULES_DEBUG)] == 1 } { puts stderr "failed to find $path" }
 	}
 	return
 }
