@@ -68,7 +68,8 @@ curl \
 git \
 check \
 ATLAS \
-libpipeline
+libpipeline \
+boost
 
 #shell/bash \
 #shell/tcsh \
