@@ -144,27 +144,18 @@ proc setStandardPaths {name version prefix hasbin hasinclude haslib {hasman 0} {
 
 
 proc checkBin {name version {prefix ""}} {
-	puts stderr "TEST_1"
 	if {[string compare $prefix "" ] == 0} {
 		set path "$name/$version"
 	} else {
 		set path "$prefix/$name/$version"
 	}
-	puts stderr "TEST_2"
 	if {[file exists "$path/bin"] && [file isdirectory "$path/bin"]} {
-		puts stderr "BIN PATH FOUND"
 		prepend-path PATH "$path/bin"
-		puts stderr "BIN PATH ADDED TO ENV_VAR"
 		if {[info exists ::env(MODULES_DEBUG)] == 1 &&  [ module-info mode load ] } { puts stderr "$path/bin added to environmental variable: PATH" }
-		puts stderr "BIN PATH DONE"
-	
 	} else {
-		puts stderr "BIN PATH NOT FOUND"
 		if {[info exists ::env(MODULES_DEBUG)] == 1 &&  [ module-info mode load ] } { puts stderr "failed to find $path/bin" }
 	}
-	puts stderr "TEST_3"
 	return
-	
 }
 
 proc checkInclude {name version {prefix ""}} {
@@ -260,19 +251,19 @@ proc checkINFO { name version {prefix ""} } {
 }
 
 proc checkStandardPaths {name version {prefix ""} } {
-	puts stderr "Checking_STD_PATHS"
+#	puts stderr "Checking_STD_PATHS"
 	checkBin $name $version $prefix
-	puts stderr "BIN CHECKED"
+#	puts stderr "BIN CHECKED"
 	checkInclude $name $version $prefix
-	puts stderr "INCLUDE CHECKED"
+#	puts stderr "INCLUDE CHECKED"
 	checkLib $name $version $prefix
-	puts stderr "LIB CHECKED"
+#	puts stderr "LIB CHECKED"
 	checkLib64 $name $version $prefix
-	puts stderr "LIB64 CHECKED"
+#	puts stderr "LIB64 CHECKED"
 	checkMAN $name $version $prefix
-	puts stderr "MAN CHECKED"
+#	puts stderr "MAN CHECKED"
 	checkINFO $name $version $prefix
-	puts stderr "INFO_CHECKED"
+#	puts stderr "INFO_CHECKED"
 }
 
 proc dependsOn {modulename} {
