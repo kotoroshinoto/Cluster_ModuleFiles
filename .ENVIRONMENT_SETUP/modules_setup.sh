@@ -67,6 +67,7 @@ libssh2 \
 curl \
 git \
 check \
+ATLAS \
 libpipeline
 
 #shell/bash \
