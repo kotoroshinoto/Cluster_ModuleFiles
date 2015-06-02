@@ -7,7 +7,7 @@ proc ModulesHelp { } {
 source "$::env(GoochBiotoolRoot)/modulefiles/util.tcl"
 set name mpc
 set versiondir 1.0.3
-checkStandardPaths $name $versiondir $::env(GoochBiotoolRoot
+checkStandardPaths $name $versiondir $::env(GoochBiotoolRoot)
 conflict $name
 prereq gmp
 prereq mpfr

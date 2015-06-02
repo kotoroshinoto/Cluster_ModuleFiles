@@ -7,5 +7,5 @@ proc ModulesHelp { } {
 source "$::env(GoochBiotoolRoot)/modulefiles/util.tcl"
 set name	perl
 set versiondir	5.20.2
-check StandardPaths $name $versiondir $::env(GoochBiotoolRoot)
+checkStandardPaths $name $versiondir $::env(GoochBiotoolRoot)
 conflict $name

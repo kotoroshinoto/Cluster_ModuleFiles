@@ -7,5 +7,5 @@ proc ModulesHelp { } {
 source "$::env(GoochBiotoolRoot)/modulefiles/util.tcl"
 set name	check
 set versiondir	0.9.14
-checkStandardPaths $name $versiondir $::env(GoochBiotoolRoot) $hasbin $hasinclude $haslib $hasman $hasinfo $haslib64
+checkStandardPaths $name $versiondir $::env(GoochBiotoolRoot)
 conflict $name
