@@ -144,11 +144,13 @@ proc setStandardPaths {name version prefix hasbin hasinclude haslib {hasman 0} {
 
 
 proc checkBin {$name $version {prefix ""}} {
+	puts stderr "TEST_1"
 	if {[string compare $prefix "" ] == 0} {
 		set path "$name/$version"
 	} else {
 		set path "$prefix/$name/$version"
 	}
+	puts stderr "TEST_2"
 	if {[file exists "$path/bin"] && [file isdirectory "$path/bin"]} {
 		prepend-path PATH "$path/bin"
 		if([info exists $::env(MODULES_DEBUG)]) { puts stderr "$path/bin added to environmental variable: PATH" }
@@ -156,6 +158,7 @@ proc checkBin {$name $version {prefix ""}} {
 	} else {
 		if([info exists $::env(MODULES_DEBUG)]) { puts stderr "failed to find $path/bin" }
 	}
+	puts stderr "TEST_3"
 	return
 	
 }
