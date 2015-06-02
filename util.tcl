@@ -125,6 +125,13 @@ proc checkPKGCONFIG { name version {prefix ""} } {
 	} else {
 		if {[info exists ::env(MODULES_DEBUG)] == 1 &&  [ module-info mode load ] } { puts stderr "failed to find $path/lib64/pkgconfig" }
 	}
+
+	if {[file exists "$path/share/pkgconfig"] && [file isdirectory "$path/share/pkgconfig"]} {
+		prepend-path PKG_CONFIG_PATH "$path/share/pkgconfig"
+		if {[info exists ::env(MODULES_DEBUG)] == 1 &&  [ module-info mode load ] } { puts stderr "$path/share/pkgconfig added to environmental variable: PKG_CONFIG_PATH" }
+	} else {
+		if {[info exists ::env(MODULES_DEBUG)] == 1 &&  [ module-info mode load ] } { puts stderr "failed to find $path/share/pkgconfig" }
+	}
 }
 
 proc checkStandardPaths {name version {prefix ""} } {

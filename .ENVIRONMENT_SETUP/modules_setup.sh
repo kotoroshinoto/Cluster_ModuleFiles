@@ -69,7 +69,8 @@ git \
 check \
 ATLAS \
 libpipeline \
-boost
+boost \
+eigen
 
 #shell/bash \
 #shell/tcsh \
