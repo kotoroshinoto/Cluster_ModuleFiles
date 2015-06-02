@@ -218,7 +218,7 @@ proc checkMAN {name version {prefix ""}} {
 		set path "$name/$version"
 	} else {
 		set path "$prefix/$name/$version"
-	}	
+	}
 	if {[file exists "$path/man"] && [file isdirectory "$path/man"]} {
 		prepend-path MANPATH "$path/man"
 		if {[info exists ::env(MODULES_DEBUG)] == 1 &&  [ module-info mode load ] } { puts stderr "$path/man added to environmental variable: MANPATH" }
@@ -250,6 +250,28 @@ proc checkINFO { name version {prefix ""} } {
 	return
 }
 
+proc checkPKGCONFIG { name version {prefix ""} } {
+	if {[string compare $prefix "" ] == 0} {
+		set path "$name/$version"
+	} else {
+		set path "$prefix/$name/$version"
+	}
+	
+	if {[file exists "$path/lib/pkgconfig"] && [file isdirectory "$path/lib/pkgconfig"]} {
+		prepend-path PKG_CONFIG_PATH "$path/lib/pkgconfig"
+		if {[info exists ::env(MODULES_DEBUG)] == 1 &&  [ module-info mode load ] } { puts stderr "$path/lib/pkgconfig added to environmental variable: PKG_CONFIG_PATH" }
+	} else {
+		if {[info exists ::env(MODULES_DEBUG)] == 1 &&  [ module-info mode load ] } { puts stderr "failed to find $path/lib/pkgconfig" }
+	}
+	
+	if {[file exists "$path/lib64/pkgconfig"] && [file isdirectory "$path/lib64/pkgconfig"]} {
+		prepend-path PKG_CONFIG_PATH "$path/lib64/pkgconfig"
+		if {[info exists ::env(MODULES_DEBUG)] == 1 &&  [ module-info mode load ] } { puts stderr "$path/lib64/pkgconfig added to environmental variable: PKG_CONFIG_PATH" }
+	} else {
+		if {[info exists ::env(MODULES_DEBUG)] == 1 &&  [ module-info mode load ] } { puts stderr "failed to find $path/lib64/pkgconfig" }
+	}
+}
+
 proc checkStandardPaths {name version {prefix ""} } {
 #	puts stderr "Checking_STD_PATHS"
 	checkBin $name $version $prefix
@@ -264,6 +286,8 @@ proc checkStandardPaths {name version {prefix ""} } {
 #	puts stderr "MAN CHECKED"
 	checkINFO $name $version $prefix
 #	puts stderr "INFO_CHECKED"
+	checkPKGCONFIG $name $version $prefix
+#	puts stderr "PKGCONFIG_CHECKED"
 }
 
 proc dependsOn {modulename} {
