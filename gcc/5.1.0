@@ -10,13 +10,14 @@ set name	gcc
 
 set versiondir	5.1.0
 
-set hasbin	1
-set hasinclude	1
-set haslib	1
-set haslib64	1
-set hasman	1
-set hasinfo	0
+#set hasbin	1
+#set hasinclude	1
+#set haslib	1
+#set haslib64	1
+#set hasman	1
+#set hasinfo	0
 
-setStandardPaths $name $versiondir $::env(GoochBiotoolRoot) $hasbin $hasinclude $haslib $hasman $hasinfo $haslib64
+checkStandardPaths $name $versiondir $::env(GoochBiotoolRoot) 
+#$hasbin $hasinclude $haslib $hasman $hasinfo $haslib64
 
 prepend-path PKG_CONFIG_PATH $::env(GoochBiotoolRoot)/$name/$versiondir/lib64/pkgconfig
