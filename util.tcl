@@ -253,12 +253,14 @@ proc checkINFO { name version {prefix ""} } {
 }
 
 proc checkStandardPaths {name version {prefix ""} } {
+	puts stderr "TEST_1"
 	checkBin $name $version $prefix
 	checkInclude $name $version $prefix
 	checkLib $name $version $prefix
 	checkLib64 $name $version $prefix
 	checkMAN $name $version $prefix
 	checkINFO $name $version $prefix
+	puts stderr "TEST_2"
 }
 
 proc dependsOn {modulename} {
