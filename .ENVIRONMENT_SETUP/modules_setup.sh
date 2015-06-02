@@ -15,6 +15,8 @@ else
   . $MODULE_INIT/sh
 fi
 
+export MODULES_DEBUG=1
+
 #module load autoconf \
 #binutils \
 #coreutils \
