@@ -7,3 +7,4 @@ source "$::env(GoochBiotoolRoot)/modulefiles/util.tcl"
 set name	gcc
 set versiondir	5.1.0
 checkStandardPaths $name $versiondir $::env(GoochBiotoolRoot) 
+conflict $name

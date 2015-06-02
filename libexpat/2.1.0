@@ -5,18 +5,7 @@ proc ModulesHelp { } {
 }
 
 source "$::env(GoochBiotoolRoot)/modulefiles/util.tcl"
-
 set name	libexpat
-
 set versiondir	2.1.0
-
-set hasbin	1
-set hasinclude	1
-set haslib	1
-set haslib64	0
-set hasman	1
-set hasinfo	0
-
-setStandardPaths $name $versiondir $::env(GoochBiotoolRoot) $hasbin $hasinclude $haslib $hasman $hasinfo $haslib64
-
+checkStandardPaths $name $versiondir $::env(GoochBiotoolRoot)
 conflict $name
