@@ -5,20 +5,7 @@ proc ModulesHelp { } {
 }
 
 source "$::env(GoochBiotoolRoot)/modulefiles/util.tcl"
-
 set name	
-
 set versiondir	
-
-set hasbin	
-set hasinclude	
-set haslib	
-set haslib64	
-set hasman	
-set hasinfo	
-
-setStandardPaths $name $versiondir $::env(GoochBiotoolRoot) $hasbin $hasinclude $haslib $hasman $hasinfo $haslib64
-
-#prepend-path PKG_CONFIG_PATH $::env(GoochBiotoolRoot)/$name/$versiondir/lib/pkgconfig
-
+checkStandardPaths $name $versiondir $::env(GoochBiotoolRoot) $hasbin $hasinclude $haslib $hasman $hasinfo $haslib64
 conflict $name
