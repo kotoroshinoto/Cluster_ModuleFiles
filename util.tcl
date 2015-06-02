@@ -152,10 +152,12 @@ proc checkBin {name version {prefix ""}} {
 	}
 	puts stderr "TEST_2"
 	if {[file exists "$path/bin"] && [file isdirectory "$path/bin"]} {
+		puts stderr "BIN PATH FOUND"
 		prepend-path PATH "$path/bin"
 		if([info exists $::env(MODULES_DEBUG)]) { puts stderr "$path/bin added to environmental variable: PATH" }
 	
 	} else {
+		puts stderr "BIN PATH NOT FOUND"
 		if([info exists $::env(MODULES_DEBUG)]) { puts stderr "failed to find $path/bin" }
 	}
 	puts stderr "TEST_3"
