@@ -1,0 +1,11 @@
+#%Module1.0
+
+proc ModulesHelp { } {
+        puts stderr "\t\n"
+}
+
+source "$::env(GoochBiotoolRoot)/modulefiles/util.tcl"
+set name	bowtie2
+set versiondir	2.2.5
+checkStandardPaths $name $versiondir $::env(GoochBiotoolRoot)/tuxedo_tools
+conflict $name

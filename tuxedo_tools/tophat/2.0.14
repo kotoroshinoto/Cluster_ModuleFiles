@@ -1,0 +1,11 @@
+#%Module1.0
+
+proc ModulesHelp { } {
+        puts stderr "\t\n"
+}
+
+source "$::env(GoochBiotoolRoot)/modulefiles/util.tcl"
+set name	tophat
+set versiondir	2.0.14
+checkStandardPaths $name $versiondir $::env(GoochBiotoolRoot)/tuxedo_tools
+conflict $name

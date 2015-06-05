@@ -1,0 +1,11 @@
+#%Module1.0
+
+proc ModulesHelp { } {
+        puts stderr "\t\n"
+}
+
+source "$::env(GoochBiotoolRoot)/modulefiles/util.tcl"
+set name	samtools
+set versiondir	1.2
+checkStandardPaths $name $versiondir $::env(GoochBiotoolRoot)/sam_tools
+conflict $name

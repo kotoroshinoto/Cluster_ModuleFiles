@@ -54,8 +54,8 @@ libsigc++ \
 libtiff \
 pixman \
 pkg-config \
-python2 \
 python3 \
+python2 \
 glib2 \
 readline \
 R \
@@ -69,8 +69,20 @@ git \
 check \
 ATLAS \
 libpipeline \
-boost \
-eigen
+boost/1.55.0 \
+eigen \
+sam_tools/htslib \
+sam_tools/samtools \
+sam_tools/bcftools \
+libxml2 \
+asciidoc \
+xz \
+bzip2 \
+llvm_suite \
+tuxedo_tools/bowtie \
+tuxedo_tools/bowtie2 \
+tuxedo_tools/tophat \
+tuxedo_tools/cufflinks
 
 #shell/bash \
 #shell/tcsh \

@@ -1,0 +1,11 @@
+#%Module1.0
+
+proc ModulesHelp { } {
+        puts stderr "\t\n"
+}
+
+source "$::env(GoochBiotoolRoot)/modulefiles/util.tcl"
+set name	bzip2
+set versiondir	1.0.6
+checkStandardPaths $name $versiondir $::env(GoochBiotoolRoot)
+conflict $name

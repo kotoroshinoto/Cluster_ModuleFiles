@@ -1,0 +1,11 @@
+#%Module1.0
+
+proc ModulesHelp { } {
+        puts stderr "\t\n"
+}
+
+source "$::env(GoochBiotoolRoot)/modulefiles/util.tcl"
+set name	llvm_suite
+set versiondir	3.6.1
+checkStandardPaths $name $versiondir $::env(GoochBiotoolRoot)
+conflict $name

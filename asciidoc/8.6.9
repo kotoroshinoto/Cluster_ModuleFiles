@@ -1,0 +1,11 @@
+#%Module1.0
+
+proc ModulesHelp { } {
+        puts stderr "\t\n"
+}
+
+source "$::env(GoochBiotoolRoot)/modulefiles/util.tcl"
+set name	asciidoc
+set versiondir	8.6.9
+checkStandardPaths $name $versiondir $::env(GoochBiotoolRoot)
+conflict $name
